@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import glob
 
-# Data can be pullec from remote dvc on dagshub
+# Data can be pulled from remote dvc on dagshub
 # set path and file name so we can pull all the csvs in the folder
 path = 'Data/Testimonies/'
 filenames = glob.glob(path + "/*.csv")
@@ -108,4 +108,4 @@ texts_stacked = pd.DataFrame(np.concatenate(texts), columns=["أقوال بال�
 
 testimonies = pd.concat([texts_stacked, SV_text], ignore_index=True)
 
-testimonies.to_csv("testimonies.csv", index=False)
+testimonies.to_csv("Data/testimonies.csv", index=False)

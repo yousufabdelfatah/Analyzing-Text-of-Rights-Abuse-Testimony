@@ -1,0 +1,19 @@
+stages:
+  preprocessing:
+    cmd: python testimonies_preprocessing.py Data/Testimonies/
+    deps:
+    - testimonies_preprocessing.py
+    outs:
+    - data/testimonies.csv
+  keywords:
+    cmd: python keywords_testimonies.py Data/testimonies.csv
+    deps:
+    - Data/testimonies.csv
+    - keywords_testimonies.py
+  topic_model:
+    cmd: python topic_model.py Data/testimonies.csv
+    deps:
+    - Data/testimonies.csv
+    - topic_model.py
+    outs:
+    - arabert_model

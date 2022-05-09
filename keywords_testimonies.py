@@ -6,12 +6,12 @@ import re
 from sklearn.feature_extraction.text import CountVectorizer
 import arabic_reshaper
 from bidi.algorithm import get_display
-from wordcloud import WordCloud
+from ar_wordcloud import ArabicWordCloud
 import matplotlib.pyplot as plt
 import nltk
 from snowballstemmer import stemmer
 
-testimonies = pd.read_csv("testimonies.csv")
+testimonies = pd.read_csv("Data/testimonies.csv")
 
 # change from object type to string type
 testimonies['أقوال بالتعرض للتعذيب'] = testimonies['أقوال بالتعرض للتعذيب'].astype(str)
@@ -102,10 +102,6 @@ dtm = vectorizer.transform(testimonies)
 dtm = pd.DataFrame(dtm.toarray(), columns = vectorizer.get_feature_names())
 
 freq = dtm.sum(axis = 0).sort_values(ascending = False)
-
-wc = WordCloud().generate_from_frequencies(freq)
-
-from ar_wordcloud import ArabicWordCloud
 
 awc = ArabicWordCloud(background_color="black")
 
