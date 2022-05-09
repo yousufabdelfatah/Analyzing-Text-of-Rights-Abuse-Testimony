@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import glob
 
+# Data can be pullec from remote dvc on dagshub
 # set path and file name so we can pull all the csvs in the folder
 path = 'Data/Testimonies/'
 filenames = glob.glob(path + "/*.csv")
