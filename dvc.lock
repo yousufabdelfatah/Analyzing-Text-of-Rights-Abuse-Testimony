@@ -17,8 +17,15 @@ stages:
       md5: 7b8e7ec03218baf6780198346b04d116
       size: 329108
     - path: keywords_testimonies.py
-      md5: 323fe29acfe1aac1abc3ecc228c59d1c
-      size: 4313
+      md5: 55950c3ff3c20e9c423049fcd2d073d6
+      size: 4377
+    outs:
+    - path: keywords_barchart.jpg
+      md5: 609b689758eabf54831569b3e58fa96d
+      size: 73969
+    - path: wordcloud.jpg
+      md5: 5cb801517a76ec41bbe7b033cbbdc2ca
+      size: 15650
   topic_model:
     cmd: python topic_model.py Data/testimonies.csv
     deps:
@@ -26,9 +33,14 @@ stages:
       md5: 7b8e7ec03218baf6780198346b04d116
       size: 329108
     - path: topic_model.py
-      md5: 2b33f1bb9004ea4d5e90804f7ae7718b
-      size: 1215
+      md5: 134af9cb0efc7517332b4814604523e3
+      size: 1430
+    params:
+      params.yaml:
+        preprocessing.ngrams:
+          smallest: 1
+          largest: 2
     outs:
     - path: arabert_model
-      md5: 98039f6a220661fb5cf1ddce5058ccc9
-      size: 544932995
+      md5: 43103d9f9e93b87529572357bccd2261
+      size: 545830673

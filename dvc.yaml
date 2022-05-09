@@ -10,6 +10,9 @@ stages:
     deps:
     - Data/testimonies.csv
     - keywords_testimonies.py
+    outs:
+    - keywords_barchart.jpg
+    - wordcloud.jpg
   topic_model:
     cmd: python topic_model.py Data/testimonies.csv
     deps:
@@ -17,3 +20,5 @@ stages:
     - topic_model.py
     outs:
     - arabert_model
+    params:
+    - preprocessing.ngrams

@@ -74,7 +74,6 @@ stopwords = [remove_punctuations(item) for item in stopwords]
 stopwords = [remove_repeating_char(item) for item in stopwords]
 
 # Create tokenizer that includes lemmatizations
-# tokenize with a regular expression to limit just to useful english words
 
 class LemmaTokenizer:
     ignore_tokens = [',', '.', ';', ':', '"', '``', "''", '`']
@@ -113,6 +112,7 @@ dict = freq.to_dict()
 
 dict_wc = awc.from_dict(dict, ignore_stopwords=True)
 awc.plot(dict_wc, width=15, height=15)
+dict_wc.to_file("wordcloud.jpg")
 
 freq_index_fixed = []
 
@@ -122,6 +122,10 @@ for i in list(freq.index.astype(str)):
     freq_index_fixed.append(y)
 
 # keywords barchart
-plt.rcParams["figure.figsize"] = (15,10)
+plt.rcParams["figure.figsize"] = (12,10)
 plt.bar(freq_index_fixed, freq.values)
+plt.title("Keywords")
+plt.xlabel("Keywords")
+plt.ylabel("Frequency")
+plt.savefig("keywords_barchart.jpg")
 
